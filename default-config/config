@@ -168,7 +168,7 @@ DesktopName 0 Main
 DesktopName 1 Desk1
 DesktopName 2 Desk2
 DesktopName 3 Desk3
-DesktopSize 2x2
+DesktopSize 1x1
 
 # EdgeScroll will move the view port between the Pages when the mouse
 # moves to the edge of the screen. This set the amount of distance to
@@ -191,15 +191,15 @@ EwmhBaseStruts 0 120 0 0
 ClickTime 250
 MoveThreshold 3
 
-# Sets the focus style to SloppyFocus and a mouse click
+# Sets the focus style to ClickToFocus and a mouse click
 # in a window will Raise it.
-Style * SloppyFocus, MouseFocusClickRaises
+Style * ClickToFocus, MouseFocusClickRaises
 
 # Default Font
-DefaultFont "xft:Sans:Bold:size=8:antialias=True"
+DefaultFont "xft:Sans:Bold:size=12:antialias=True"
 
 # Window Placement
-Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
+## Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
 
 # Sets all windows to OpaqueMove (vs a wired frame) and  windows will
 # snap to each other and the edge of the screen.
@@ -279,7 +279,7 @@ MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Sans:Bold:size=8:antialias=True"
+MenuStyle * Font "xft:Sans:Bold:size=12:antialias=True"
 
 # Root Menu
 #
@@ -287,6 +287,11 @@ MenuStyle * Font "xft:Sans:Bold:size=8:antialias=True"
 # window or using alt-f1 (or menu).
 DestroyMenu MenuFvwmRoot
 AddToMenu   MenuFvwmRoot "Fvwm" Title
++ "Emacs" Exec exec emacs
++ "Nautilus" Exec exec nautilus
++ "Dolphin" Exec exec dolphin
++ "Konsole" Exec exec konsole
++ "Firefox" Exec exec firefox
 + "&Programs%icons/programs.png%" Popup MenuPrograms
 + "XDG &Menu%icons/apps.png%" Popup XDGMenu
 + "&XTerm%icons/terminal.png%" Exec exec $[infostore.terminal]
@@ -492,8 +497,8 @@ Mouse 1	FS   A RaiseMove Resize
 Mouse 4	T    A WindowShade True
 Mouse 5	T    A WindowShade False
 Mouse 1	R    A Menu MenuFvwmRoot
-Mouse 2	R    A WindowList
-Mouse 3	R    A Menu MenuWindowOpsLong
+Mouse 3	R    A WindowList
+Mouse 2	R    A Menu MenuWindowOpsLong
 Mouse 1	I    A RaiseMoveX Move "Iconify off"
 Mouse 3	T    A Menu MenuWindowOps
 Mouse 3 I    A Menu MenuIconOps
@@ -508,19 +513,19 @@ Mouse 3 I    A Menu MenuIconOps
 #   4 - Maximize
 #   6 - Minimize
 ###########
-TitleStyle Centered Height 18 -- Flat
+TitleStyle Centered Height 18
 ButtonStyle All ActiveUp Vector 5 15x15@4 15x85@3 85x85@3 85x15@3 \
-                15x15@3 -- Flat
+                15x15@3
 ButtonStyle All ToggledActiveUp Vector 5 15x15@4 15x85@3 85x85@3 \
-                85x15@3 15x15@3 -- Flat
+                85x15@3 15x15@3
 ButtonStyle All ActiveDown Vector 5 20x20@4 20x80@3 80x80@3 80x20@3 \
-                20x20@3 -- Flat
+                20x20@3
 ButtonStyle All ToggledActiveDown Vector 5 20x20@4 20x80@3 80x80@3 \
-                80x20@3 20x20@3 -- Flat
+                80x20@3 20x20@3
 ButtonStyle All ToggledInactive Vector 5 47x47@3 57x53@3 53x53@3 \
-                53x47@3 47x47@3 -- Flat
+                53x47@3 47x47@3
 ButtonStyle All Inactive Vector 5 47x47@3 57x53@3 53x53@3 53x47@3 \
-                47x47@3 -- Flat
+                47x47@3
 AddButtonStyle 1 Active Vector 5 45x45@3 55x45@3 55x55@3 45x55@3 45x45@3
 AddButtonStyle 2 Active Vector 4 35x35@3 65x65@3 65x35@4 35x65@3
 AddButtonStyle 4 Active Vector 8 30x70@3 30x30@3 70x30@3 70x70@3 30x70@3 \
@@ -543,7 +548,7 @@ ButtonStyle 6 - MwmDecorMin
 # a window. One use is getting the class/resource/name of a window.
 DestroyModuleConfig FvwmIdent:*
 *FvwmIdent: Colorset 10
-*FvwmIdent: Font "xft:Sans:size=10:antialias=True"
+*FvwmIdent: Font "xft:Sans:size=12:antialias=True"
 
 # FvwmBanner
 #
@@ -578,7 +583,7 @@ DestroyModuleConfig RightPanel:*
 *RightPanel: Rows $[vp.height]
 *RightPanel: Columns 120
 *RightPanel: Frame 0
-*RightPanel: Font "xft:Sans:Bold:size=10:antialias=True"
+*RightPanel: Font "xft:Sans:Bold:size=12:antialias=True"
 *RightPanel: (120x45, Icon "fvwm-logo-small.png", Frame 0)
 *RightPanel: (120x5, Frame 0)
 *RightPanel: (10x20, Frame 0)
@@ -613,7 +618,7 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: WindowColorsets 10 11
 *FvwmPager: Font None
 *FvwmPager: Balloons All
-*FvwmPager: BalloonFont "xft:Sans:Bold:size=8:antialias=True"
+*FvwmPager: BalloonFont "xft:Sans:Bold:size=12:antialias=True"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 *FvwmPager: MiniIcons
@@ -635,7 +640,7 @@ DestroyModuleConfig FvwmIconMan:*
 *FvwmIconMan: DrawIcons always
 *FvwmIconMan: ReliefThickness 0
 *FvwmIconMan: Format "%t"
-*FvwmIconMan: Font "xft:Sans:Bold:size=8:antialias=True"
+*FvwmIconMan: Font "xft:Sans:Bold:size=12:antialias=True"
 *FvwmIconMan: Action Mouse 0 A ret
 *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
 *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
